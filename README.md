@@ -1,7 +1,13 @@
 # What? 
 The idea is to run end-to-end tests in a Docker container, that contains Chrome, the chromedriver, mvn and the source for the tests. The tests run against an instance of your application outside of the container. This can be done on a CI server like Jenkins, so you do not need to hassle with the installation of these tools on the CI server itself.
 
+Published on [Docker Hub](https://hub.docker.com/r/srsp/testdriver-chrome/).
+
 # How? 
+
+```
+docker pull srsp/testdriver-chrome
+```
 
 You can run this image with 
 
