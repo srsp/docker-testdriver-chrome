@@ -30,6 +30,12 @@ The important thing here is the `xvfb-run`, which will wrap the `mvn` execution 
 
 # Versions
 
+## 2.43.1
+Chrome 69.0.3497.92, Chromedriver 2.43, OpenJDK 8.u181, mvn 3.6.0
+
+## 2.43.0
+Chrome 69.0.3497.92, Chromedriver 2.43, OpenJDK 8.u181, mvn 3.5.4
+
 ## 2.42.0
 Chrome 69.0.3497.92, Chromedriver 2.42, OpenJDK 8.u181, mvn 3.5.4
 

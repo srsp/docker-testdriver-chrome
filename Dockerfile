@@ -36,7 +36,7 @@ RUN apt-get update -qqy \
 # Mvn
 # https://hub.docker.com/_/maven/
 # https://github.com/carlossg/docker-maven/blob/f581ea002e5d067deb6213c00a4d217297cad469/jdk-8/Dockerfile
-ARG MAVEN_VERSION=3.5.4
+ARG MAVEN_VERSION=3.6.0
 ARG USER_HOME_DIR="/home/tester"
 ARG BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
 ARG MVN_FILE_NAME=apache-maven-${MAVEN_VERSION}-bin.tar.gz
