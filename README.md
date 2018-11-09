@@ -30,17 +30,23 @@ The important thing here is the `xvfb-run`, which will wrap the `mvn` execution 
 
 # Versions
 
-## 2.43.1
-Chrome 69.0.3497.92, Chromedriver 2.43, OpenJDK 8.u181, mvn 3.6.0
+| testdriver-chrome | Chrome       | Chromedriver | OpenJDK   | mvn   | 
+|---		          |---           |---           |---        |--- 
+| 2.43.1            | 70.0.3538.77 | 2.43         | 1.8.0_181 | 3.6.0 |
+| 2.43.0            | 70.0.3538.77 | 2.43         | 1.8.0_181 | 3.5.4 |
+| 2.42.0            | 69.0.3497.92 | 2.42         | 1.8.0_181 | 3.5.4 |
+| 2.41.0            | 69.0.3497.92 | 2.41         | 1.8.0_181 | 3.5.4 |
 
-## 2.43.0
-Chrome 69.0.3497.92, Chromedriver 2.43, OpenJDK 8.u181, mvn 3.5.4
-
-## 2.42.0
-Chrome 69.0.3497.92, Chromedriver 2.42, OpenJDK 8.u181, mvn 3.5.4
-
-## 2.41.0
-Chrome 69.0.3497.92, Chromedriver 2.41, OpenJDK 8.u181, mvn 3.5.4
 
 # Acknowledgments
-Big thank you to [Hronom](https://github.com/Hronom/chromedriver-docker-example) for the Chrome, Chromedriver and Xvfb stuff.
+Big thanks to [Hronom](https://github.com/Hronom/chromedriver-docker-example) for the Chrome, Chromedriver and Xvfb stuff.
+
+# Development
+
+### Find out Chrome version
+
+`docker run srsp/testdriver-chrome /opt/google/chrome/chrome --no-sandbox --version`
+
+### Find out Java and mvn version
+
+`docker run srsp/testdriver-chrome mvn --version`
