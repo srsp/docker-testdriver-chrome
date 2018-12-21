@@ -32,6 +32,7 @@ The important thing here is the `xvfb-run`, which will wrap the `mvn` execution 
 
 | testdriver-chrome | Chrome       | Chromedriver | OpenJDK   | mvn   | 
 |---		          |---           |---           |---        |--- 
+| 2.45.0            | 71.0.3578.98 | 2.45         | 1.8.0_191 | 3.6.0 |
 | 2.43.1            | 70.0.3538.77 | 2.43         | 1.8.0_181 | 3.6.0 |
 | 2.43.0            | 70.0.3538.77 | 2.43         | 1.8.0_181 | 3.5.4 |
 | 2.42.0            | 69.0.3497.92 | 2.42         | 1.8.0_181 | 3.5.4 |

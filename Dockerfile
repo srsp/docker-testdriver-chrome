@@ -1,8 +1,8 @@
-FROM openjdk:8-jdk-stretch
+FROM adoptopenjdk/openjdk8:jdk8u191-b12
 
 RUN apt-get update -y \
     && apt-get -qqy dist-upgrade \
-    && apt-get -qqy install software-properties-common gettext-base unzip psmisc\
+    && apt-get -qqy install software-properties-common gettext-base unzip psmisc wget\
 	&& rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
 ####################################################################################################
@@ -19,7 +19,7 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
 	&& sed -i 's/"$HERE\/chrome"/"$HERE\/chrome" --no-sandbox/g' /opt/google/chrome/google-chrome
 
 # ChromeDriver
-ARG CHROME_DRIVER_VERSION=2.43
+ARG CHROME_DRIVER_VERSION=2.45
 RUN wget --no-verbose -O /tmp/chromedriver_linux64.zip https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip \
 	&& rm -rf /opt/chromedriver \
 	&& unzip /tmp/chromedriver_linux64.zip -d /opt \
