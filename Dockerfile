@@ -1,4 +1,5 @@
-FROM adoptopenjdk/openjdk11:jdk-11.0.2.9
+FROM maven:3.6.0-jdk-8
+#FROM adoptopenjdk/openjdk11:jdk-11.0.2.9
 
 RUN apt-get update -y \
     && apt-get -qqy dist-upgrade \
@@ -19,7 +20,7 @@ RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key
 	&& sed -i 's/"$HERE\/chrome"/"$HERE\/chrome" --no-sandbox/g' /opt/google/chrome/google-chrome
 
 # ChromeDriver
-ARG CHROME_DRIVER_VERSION=2.46
+ARG CHROME_DRIVER_VERSION=73.0.3683.68
 RUN wget --no-verbose -O /tmp/chromedriver_linux64.zip https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip \
 	&& rm -rf /opt/chromedriver \
 	&& unzip /tmp/chromedriver_linux64.zip -d /opt \
@@ -32,23 +33,6 @@ RUN wget --no-verbose -O /tmp/chromedriver_linux64.zip https://chromedriver.stor
 RUN apt-get update -qqy \
 	&& apt-get -qqy install xvfb \
 	&& rm -rf /var/lib/apt/lists/* /var/cache/apt/*
-
-# Mvn
-# https://hub.docker.com/_/maven/
-# https://github.com/carlossg/docker-maven/blob/f581ea002e5d067deb6213c00a4d217297cad469/jdk-8/Dockerfile
-ARG MAVEN_VERSION=3.6.0
-ARG USER_HOME_DIR="/home/tester"
-ARG BASE_URL=https://apache.osuosl.org/maven/maven-3/${MAVEN_VERSION}/binaries
-ARG MVN_FILE_NAME=apache-maven-${MAVEN_VERSION}-bin.tar.gz
-
-RUN mkdir -p /usr/share/maven /usr/share/maven/ref \
-  && wget ${BASE_URL}/${MVN_FILE_NAME} \
-  && tar -xzf /${MVN_FILE_NAME} -C /usr/share/maven --strip-components=1 \
-  && rm -f /tmp/${MVN_FILE_NAME} \
-  && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
-
-ENV MAVEN_HOME /usr/share/maven
-ENV MAVEN_CONFIG "$USER_HOME_DIR/.m2"
 
 # User
 RUN mkdir -p /home/tester/code
