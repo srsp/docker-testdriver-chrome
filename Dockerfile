@@ -1,4 +1,4 @@
-FROM maven:3.6.0-jdk-8
+FROM maven:3.6.0-jdk-11
 #FROM adoptopenjdk/openjdk11:jdk-11.0.2.9
 
 RUN apt-get update -y \
