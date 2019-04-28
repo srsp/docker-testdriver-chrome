@@ -5,13 +5,15 @@ Published on [Docker Hub](https://hub.docker.com/r/srsp/testdriver-chrome/).
 
 # How? 
 
-```
+```bash
 docker pull srsp/testdriver-chrome
 ```
 
 You can run this image with 
 
-```docker run -v "$(pwd)":/home/tester/code -v"$HOME"/.m2:/home/tester/.m2 -w /home/tester/code/someOtherDir srsp/testdriver-chrome ./execute-mvn-test.sh```
+```bash
+docker run -v "$(pwd)":/home/tester/code -v"$HOME"/.m2:/home/tester/.m2 -w /home/tester/code/someOtherDir srsp/testdriver-chrome ./execute-mvn-test.sh
+```
 
 where 
 
@@ -21,7 +23,7 @@ where
 
 A typical `execute-mvn-test.sh` could look like this:
 
-```
+```bash
 #!/usr/bin/env bash
 xvfb-run mvn verify
 ```
@@ -32,6 +34,7 @@ The important thing here is the `xvfb-run`, which will wrap the `mvn` execution 
 
 | testdriver-chrome | Chrome        | Chromedriver | OpenJDK   | mvn   | 
 |---		        |---            |---           |---        |--- 
+| 74.0.0            | 74.0.3729.108 | 74.0.3729.6  | 1.8.0_212 | 3.6.1 |
 | 73.0.0-jdk11      | 73.0.3683.86  | 73.0.3683.68 | 11.0.2.9  | 3.6.0 |
 | 73.0.0            | 73.0.3683.86  | 73.0.3683.68 | 1.8.0_212 | 3.6.0 |
 | 2.46.0-jdk11      | 72.0.3626.109 | 2.46         | 11.0.2.9  | 3.6.0 |
@@ -50,8 +53,12 @@ Big thanks to [Hronom](https://github.com/Hronom/chromedriver-docker-example) fo
 
 ### Find out Chrome version
 
-`docker run srsp/testdriver-chrome /opt/google/chrome/chrome --no-sandbox --version`
+```bash
+docker run srsp/testdriver-chrome /opt/google/chrome/chrome --no-sandbox --version
+```
 
 ### Find out Java and mvn version
 
-`docker run srsp/testdriver-chrome mvn --version`
+```bash
+docker run srsp/testdriver-chrome mvn --version
+```
